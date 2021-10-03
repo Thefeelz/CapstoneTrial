@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         distanceToGround = GetComponentInChildren<Collider>().bounds.extents.y;
+        Debug.Log(distanceToGround);
         playerStats = GetComponent<CharacterStats>();
         overchargeAbilities = GetComponent<OverchargeAbilities>();
         playerAttack = GetComponent<PlayerAttack>();
@@ -145,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
         }
         rb.velocity = new Vector3(currentX, rb.velocity.y, currentZ);
     }
+   
     private void RotateCharacter(int rotationDirection)
     {
         rb.rotation = rb.rotation * Quaternion.Euler(0, playerRotateSpeed * rotationDirection * Time.deltaTime, 0);
